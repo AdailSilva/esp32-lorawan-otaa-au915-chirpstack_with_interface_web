@@ -46,7 +46,7 @@
 
 /* ------------------------- Web page login -------------------------- */
 #define DEF_WEB_USER            "admin"
-#define DEF_WEB_PASS            "lorawan"
+#define DEF_WEB_PASS            "lorawan101"
 
 /* --------------------- OTAA credentials (MSB) ---------------------- */
 /* All values big-endian (MSB first), exactly as shown in ChirpStack.  */

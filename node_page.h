@@ -384,7 +384,7 @@ main{padding-top:16px}.top{position:static}.top>div{padding:10px 14px}.chips{ord
 <div class="f"><label class="l" for="wp">Nova senha</label><input type="password" id="wp" autocomplete="new-password" maxlength="31" placeholder="vazio mantém a atual" name="web_pswd"></div>
 <div class="f"><label class="l" for="wp2">Confirmar nova senha</label><input type="password" id="wp2" autocomplete="new-password" maxlength="31"></div>
 </div>
-<p class="hint">Mínimo de 6 caracteres. Depois de salvar, o navegador pede o novo login. Esqueceu? No console serial: <code>web_auth --reset</code> (volta para admin / lorawan).</p>
+<p class="hint">Mínimo de 6 caracteres. Depois de salvar, o navegador pede o novo login. Esqueceu? No console serial: <code>web_auth --reset</code> (volta para admin / lorawan101).</p>
 </div></section>
 
 <section class="sec" id="mnt"><header><h3>Manutenção</h3><p>Cópia de segurança da configuração e volta ao padrão de fábrica.</p></header>
@@ -512,7 +512,7 @@ function exp(){fetch("config.json",{cache:"no-store"}).then(function(r){return r
 var a=document.createElement("a"),d=new Date(),p=function(n){return("0"+n).slice(-2)};a.href=URL.createObjectURL(new Blob([JSON.stringify(j,null,2)],{type:"application/json"}));
 a.download=host(j.name)+"_"+d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+".json";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},500)})}
 function imp(i){var r=new FileReader();r.onload=function(){try{var j=JSON.parse(r.result);if(j._mode&&j._mode!=MODE&&!confirm("Este arquivo é de um nó "+j._mode.toUpperCase()+" e este firmware é "+MODE.toUpperCase()+". Importar mesmo assim?"))return;fill(j,1);mark();alert("Configuração carregada no formulário. Revise e clique em Salvar.")}catch(x){alert("Arquivo JSON inválido.")}i.value=""};if(i.files[0])r.readAsText(i.files[0])}
-function fac(){if(confirm("Apagar toda a configuração salva e voltar aos valores de fábrica?\nO nó reinicia e o login volta para admin / lorawan."))$("fb").submit()}
+function fac(){if(confirm("Apagar toda a configuração salva e voltar aos valores de fábrica?\nO nó reinicia e o login volta para admin / lorawan101."))$("fb").submit()}
 /* ------------------------------ actions ------------------------------ */
 function act(a,q,v){if(q&&!confirm(q))return;$("amsg").textContent="…";fetch("action",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"a="+a+(v!=null?"&v="+v:"")})
 .then(function(r){return r.json()}).then(function(j){$("amsg").textContent=j.ok?j.msg:(j.error||"Falha");setTimeout(st,800)}).catch(function(){$("amsg").textContent="Sem resposta do nó"})}

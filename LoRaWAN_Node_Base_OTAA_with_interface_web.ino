@@ -13,7 +13,7 @@
  * ||
  * || NOTES:
  * ||   • Every parameter below is now set from the WEB PAGE of the node
- * ||     (http://<ip>/ or http://lorawan-node-otaa.local/, login admin/lorawan)
+ * ||     (http://<ip>/ or http://lorawan-node-otaa.local/, login admin/lorawan101)
  * ||     and kept in the NVS. node_build.h holds only the factory defaults.
  * ||
  * || SPDX-License-Identifier: MIT
