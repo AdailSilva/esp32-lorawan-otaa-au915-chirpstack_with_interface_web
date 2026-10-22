@@ -224,7 +224,7 @@ Antes de gravar vários nós, ajuste o [`node_build.h`](node_build.h): nome, Wi-
 ## 🚀 Primeiro uso
 
 1. **Grave o firmware** e abra o Serial Monitor (9600 baud). O nó já começa a transmitir com os valores de fábrica (faz o JOIN primeiro).
-2. **Conecte no Wi-Fi do nó:** rede **`lorawan-node-otaa`**, senha **`lorawan123`**. Em celulares a página abre sozinha (portal cativo); senão, acesse **http://192.168.4.1/**.
+2. **Conecte no Wi-Fi do nó:** rede **`lorawan-node-otaa`**, senha **`lorawan101`**. Em celulares a página abre sozinha (portal cativo); senão, acesse **http://192.168.101.101/**.
 3. **Entre** com **`admin` / `lorawan`**.
 4. Em **Rede Wi-Fi**, informe sua rede; em **Ativação OTAA**, DevEUI, JoinEUI e AppKey do ChirpStack; ajuste rádio e uplink se precisar. **Salvar**.
 5. **Reinicie** pela barra inferior (o Wi-Fi novo vale depois do reinício). A página passa a responder em **http://lorawan-node-otaa.local/** ou no IP que o Serial Monitor mostrar.
@@ -331,7 +331,7 @@ O **nome do nó** vira o hostname (`http://<nome>.local/`) e o nome padrão do S
 | Modo | Comportamento |
 |---|---|
 | **Station** | Conecta na rede; sem conexão em *Espera pelo Wi-Fi* segundos, abre o Soft AP de emergência |
-| **Soft AP** | Cria a própria rede; página em `192.168.4.1` |
+| **Soft AP** | Cria a própria rede; página em `192.168.101.101` |
 | **Desligado** | Sem Wi-Fi (menos consumo). O botão BOOT (3 s) ou `wifi_ap` abrem o Soft AP quando precisar |
 
 ### 8. Hardware
@@ -442,7 +442,7 @@ Valores de fábrica do [`node_build.h`](node_build.h). **Na hora** = sem reinici
 | Wi-Fi | Nome do nó | `lorawan-node-otaa` | reinício |
 | Wi-Fi | SSID / senha / IP | vazio / vazio / DHCP | reinício |
 | Inicialização | Modo | Station (com Soft AP de emergência) | reinício |
-| Inicialização | Soft AP: nome / senha / canal | nome do nó / `lorawan123` / 6 | reinício |
+| Inicialização | Soft AP: nome / senha / canal | nome do nó / `lorawan101` / 6 | reinício |
 | Inicialização | Espera pelo Wi-Fi / botão | 30 s / GPIO 0 | reinício |
 | Hardware | SCLK, MISO, MOSI, NSS | 18, 19, 23, 5 | reinício |
 | Hardware | RESET, DIO0, DIO1, DIO2 | 14, 34, 35, -1 | reinício |

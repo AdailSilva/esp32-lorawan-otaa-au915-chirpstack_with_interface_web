@@ -31,6 +31,17 @@
 #define AP_IDLE_OFF_MS      60000UL     /* fallback AP off 60 s after STA is up */
 #define STA_RETRY_MS        60000UL     /* STA retry while in fallback AP       */
 
+/* Soft AP addressing — defaults if node_build.h (ABP/OTAA) does not set them */
+#ifndef DEF_AP_IP
+#define DEF_AP_IP           192, 168, 4, 1
+#endif
+#ifndef DEF_AP_GATEWAY
+#define DEF_AP_GATEWAY      DEF_AP_IP
+#endif
+#ifndef DEF_AP_MASK
+#define DEF_AP_MASK         255, 255, 255, 0
+#endif
+
 static WebServer   server(80);
 static DNSServer   dns;
 static NodeConfig  wcfg;                /* web task copy of the config     */
@@ -148,6 +159,8 @@ static void startAp(bool withSta)
 {
     WiFi.mode(withSta ? WIFI_AP_STA : WIFI_AP);
     WiFi.softAP(apName, wcfg.apPass, wcfg.apChannel);
+    if (!WiFi.softAPConfig(IPAddress(DEF_AP_IP), IPAddress(DEF_AP_GATEWAY), IPAddress(DEF_AP_MASK)))
+        LOG.println(F("[WEB] Falha ao aplicar IP fixo do Soft AP — usando o padrão."));
     delay(100);
     dns.setErrorReplyCode(DNSReplyCode::NoError);
     dnsOn = dns.start(53, "*", WiFi.softAPIP());
@@ -895,7 +908,8 @@ void nodeWebPrintAccess(void)
 {
     if (wcfg.wifiMode == NODE_WIFI_OFF && !forcedAp) return;
     if (forcedAp || wcfg.wifiMode == NODE_WIFI_AP || !wcfg.ssid[0])
-        LOG.printf("[WEB] Página: conecte no Wi-Fi \"%s\" (senha %s) e abra http://192.168.4.1/\r\n", apName, wcfg.apPass);
+        LOG.printf("[WEB] Página: conecte no Wi-Fi \"%s\" (senha %s) e abra http://%s/\r\n",
+                   apName, wcfg.apPass, IPAddress(DEF_AP_IP).toString().c_str());
     else
         LOG.printf("[WEB] Página: http://%s.local/ (ou o IP que aparecer abaixo). Sem Wi-Fi em %u s abre o Soft AP \"%s\".\r\n",
                    host, wcfg.staTimeout, apName);

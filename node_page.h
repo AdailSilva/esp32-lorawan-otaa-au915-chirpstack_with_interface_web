@@ -335,7 +335,7 @@ main{padding-top:16px}.top{position:static}.top>div{padding:10px 14px}.chips{ord
 <div class="fl">
 <div class="opts c3">
 <label class="opt"><input type="radio" name="wifi_mode" value="sta"><div><b>Station</b><small>Conecta na rede acima. Sem conexão, abre o Soft AP de emergência.</small></div></label>
-<label class="opt"><input type="radio" name="wifi_mode" value="ap"><div><b>Soft AP</b><small>Cria a própria rede; página em 192.168.4.1.</small></div></label>
+<label class="opt"><input type="radio" name="wifi_mode" value="ap"><div><b>Soft AP</b><small>Cria a própria rede; página em 192.168.101.101.</small></div></label>
 <label class="opt"><input type="radio" name="wifi_mode" value="off"><div><b>Desligado</b><small>Economiza energia. Para configurar, segure o botão do Soft AP por 3 s.</small></div></label>
 </div>
 <hr>

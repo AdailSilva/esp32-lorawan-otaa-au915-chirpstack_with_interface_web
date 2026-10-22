@@ -34,8 +34,12 @@
 #define DEF_WIFI_MODE           0
 #define DEF_WIFI_SSID           ""
 #define DEF_WIFI_PASS           ""
-#define DEF_AP_PASS             "lorawan123"     /* min. 8 characters  */
+#define DEF_AP_PASS             "lorawan101"     /* min. 8 characters  */
 #define DEF_AP_CHANNEL          6
+/* Soft AP addressing (fixed at build time). DHCP leases start at IP+1. */
+#define DEF_AP_IP               192, 168, 101, 101
+#define DEF_AP_GATEWAY          192, 168, 101, 1
+#define DEF_AP_MASK             255, 255, 255, 0
 #define DEF_STA_TIMEOUT_S       30   /* s without connection -> Soft AP */
 #define DEF_BOOT_PIN            0    /* hold LOW 3 s (any time) -> Soft AP;
                                         GPIO 0 = BOOT button of the DevKit */
