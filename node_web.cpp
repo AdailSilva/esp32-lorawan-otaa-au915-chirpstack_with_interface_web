@@ -532,9 +532,9 @@ static void handleSave(void)
     argStr("ip_dns1", n.dns1, sizeof(n.dns1), "DNS primário");
     argStr("ip_dns2", n.dns2, sizeof(n.dns2), "DNS secundário");
     if (n.ipStatic) {
-        if (!validIPv4(n.ip))   err("Endereço IP: use o formato 192.168.1.60.");
+        if (!validIPv4(n.ip))   err("Endereço IP: use o formato 192.168.18.101.");
         if (!validIPv4(n.mask)) err("Máscara: use o formato 255.255.255.0.");
-        if (!validIPv4(n.gw))   err("Gateway: use o formato 192.168.1.1.");
+        if (!validIPv4(n.gw))   err("Gateway: use o formato 192.168.18.1.");
         if (n.dns1[0] && !validIPv4(n.dns1)) err("DNS primário: formato inválido.");
         if (n.dns2[0] && !validIPv4(n.dns2)) err("DNS secundário: formato inválido.");
     }

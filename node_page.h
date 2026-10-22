@@ -493,7 +493,7 @@ v=hexb(f.rst_cmd.value);if(!v||v.length<1||v.length>16)e.push("Comando de reset:
 v=f.wifi_pswd.value;if(v&&v.length<8)e.push("Senha do Wi-Fi: mínimo de 8 caracteres.");
 v=f.ap_pswd.value;if(v&&v.length<8)e.push("Senha do Soft AP: mínimo de 8 caracteres.");
 if(rv("ip_mode")=="static"){var A={};if(!f.ip_mask.value.trim())f.ip_mask.value="255.255.255.0";
-[["ip_addr","Endereço IP",1],["ip_mask","Máscara",1],["ip_gw","Gateway",1],["ip_dns1","DNS primário",0],["ip_dns2","DNS secundário",0]].forEach(function(x){v=f[x[0]].value.trim();f[x[0]].value=v;if(!v){if(x[2])e.push(x[1]+": obrigatório com IP fixo.");return}A[x[0]]=ip4(v);if(A[x[0]]===null)e.push(x[1]+": use o formato 192.168.1.60.")});
+[["ip_addr","Endereço IP",1],["ip_mask","Máscara",1],["ip_gw","Gateway",1],["ip_dns1","DNS primário",0],["ip_dns2","DNS secundário",0]].forEach(function(x){v=f[x[0]].value.trim();f[x[0]].value=v;if(!v){if(x[2])e.push(x[1]+": obrigatório com IP fixo.");return}A[x[0]]=ip4(v);if(A[x[0]]===null)e.push(x[1]+": use o formato 192.168.18.101.")});
 if(A.ip_mask!=null&&(!A.ip_mask||!/^1*0*$/.test(A.ip_mask.toString(2).padStart(32,"0"))))e.push("Máscara: inválida (ex.: 255.255.255.0).");
 else if(A.ip_addr!=null&&A.ip_gw!=null&&A.ip_mask!=null){if(((A.ip_addr&A.ip_mask)>>>0)!==((A.ip_gw&A.ip_mask)>>>0))e.push("Gateway fora da rede do endereço IP (confira a máscara).");if(A.ip_addr===A.ip_gw)e.push("Endereço IP igual ao do gateway.")}}
 if(rv("wifi_mode")=="sta"&&!f.wifi_ssid.value.trim())e.push("Modo Station: informe o nome da rede Wi-Fi (ou escolha Soft AP).");
